@@ -1,0 +1,82 @@
+<!--
+*****************************************
+*****************************************
+אני מודע לכך שיכלתי לבצע את החלק הזה בצורה יותר טובה בהרבה אבל מפאת חוסר הזמן זה מה שעשיתי 
+*****************************************
+*****************************************
+-->
+
+<script>
+        $(function() {
+            $("addadmin").load("../comp/addadmin.html");
+            $("deleteadmin").load("../comp/deleteadmin.html");
+            $("addcource").load("../comp/add-cource.html");
+            $("deletecource").load("../comp/delete-cource.html");
+      
+        });
+          
+$(function(){
+    $("addcource").hide();
+    $("#addcource").on("click", function(){
+        $("deletecource").hide();
+          $("addadmin").hide();
+        $("deleteadmin").hide();
+        $("addcource").toggle();
+    });
+});
+$(function(){
+    $("deletecource").hide();
+    $("#delet").on("click", function(){
+         $("addcource").hide();
+           $("addadmin").hide();
+        $("deleteadmin").hide();
+        $("deletecource").toggle();
+    });
+});
+$(function(){
+    $("addadmin").hide();
+    $("#newadmin").on("click", function(){
+       $("deletecource").hide(); 
+         $("addcource").hide();
+         $("deleteadmin").hide();
+        $("addadmin").toggle();
+    });
+});
+          
+$(function(){
+    $("deleteadmin").hide();
+    $("#dele").on("click", function(){
+          $("addcource").hide();
+         $("deletecource").hide();
+        $("addadmin").hide();
+        $("deleteadmin").toggle();
+    });
+});
+    </script>
+<div id="app">
+    
+<button type="button" class="btn btn-primary active" id="addcource">
+  {{  edit }}
+    </button>
+    
+<button type="button" class="btn btn-primary active"  id="delet">
+  {{  delet }}
+    </button>
+    <button type="button" class="btn btn-primary active" id="newadmin">
+  {{  addadmin }}
+    </button>
+    <button type="button" class="btn btn-primary active" id="dele">
+  {{  deleteadmin }}
+    </button>
+    
+</div>
+<addcource></addcource>
+<deletecource></deletecource>
+   <addadmin></addadmin>
+<deleteadmin></deleteadmin>
+
+
+
+<script src="../fw/bootstrap.min.js"></script>
+      <script src="../fw/vuejs.js"></script>
+      <script src="../js/welcome.js"></script>

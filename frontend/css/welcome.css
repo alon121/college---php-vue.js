@@ -1,0 +1,93 @@
+.container .jumbotron,
+.container-fluid .jumbotron {
+    padding: 0px;
+}
+
+#flipkart-navbar {
+    height: 109px;
+    width: 100%;
+    background-color: #fdfffd85;
+    color: #FFFFFF;
+}
+
+.col-sm-2 img {
+    height: 76px;
+    width: 208px;
+}
+
+ol,
+ul {
+    width: 70%;
+    text-align: left;
+    float: right;
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.logo {
+    float: left;
+    height: 107px;
+}
+
+.jumbotron {
+    text-align: left;
+        background-color: #ecff4bdb;
+}
+
+.jumbotron h1 {
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+.jumbotron h5 {
+    font-size: 18px;
+    padding: 2px;
+    text-align: center;
+}
+
+
+.profilimg {
+    height: 100px;
+    width: 100px;
+    padding-left: 20px;
+    padding-top: 20px;
+    float: left;
+    padding-right: 20px;
+}
+
+
+.icons {
+    padding-left: 40px;
+    padding-top: 10px;
+}
+
+.actions {
+    margin-top: 28px;
+}
+
+.jumbotron.userlogin {
+    background-color: #47ffc4d4;
+    margin-top: 47px;
+}
+.jumbotron.admins {
+    text-align: center;
+    background-color: #47ffc4d4;
+}
+
+.jumbotron:hover {
+    background-color: red;
+}
+
+.profilimg-thum {
+    height: 62px;
+    width: 100px;
+    padding-left: 20px;
+    padding-top: 0px;
+    float: left;
+}
+
+.row.add { 
+    border: 3px solid #2d51a3;
+    background-color: #a4c7eb96;
+}

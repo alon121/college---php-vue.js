@@ -1,0 +1,279 @@
+<html>
+
+<head>
+                <script src="../../admins/hod/vue.js"></script>
+<script src="../fw/vue-resource.js"></script>
+           <script src="../fw/axios.js"></script>
+   
+    <style>
+    *{
+	margin: 0;
+	padding: 0;
+}
+
+.container{
+	width: 960px;
+	margin: auto;
+	margin-top: 44px;
+}
+
+.fleft{
+	float: left;
+}
+
+.fright{
+	float: right;
+}
+
+.clear{
+	clear: both;
+}
+
+h1{
+	font-size: 22px;
+}
+
+.addNew{
+	padding: 2px 9px;
+}
+
+table.list{
+	width: 100%;
+	margin-top: 33px;	
+}
+
+table.list th{
+	background: #1A68B8;
+	color: #FFFFFF;
+	padding: 9px;
+}
+
+table.list td{
+	padding: 9px;
+	text-align: center;
+}
+
+table.list tr{
+	background: #EEEEEE;
+}
+
+
+button{
+	padding: 2px 9px;
+}
+
+
+.modal{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0, 0.4);
+}
+
+.modalContainer{
+	width: 555px;
+	background: #FFFFFF;
+	margin: auto;
+	margin-top: 44px;
+}
+
+.modalHeading{
+	padding: 9px;
+	background: #06307C;
+	color: #FFFFFF;
+}
+
+.modalContent{
+	min-height: 333px;
+	padding: 44px;
+}
+
+.close{
+	background: #D73131;
+	padding: 3px 9px;
+	border: none;
+	color: #FFFFFF;
+}
+
+table.form input, table.form td{
+	padding: 6px;
+}
+
+p.successMessage{
+	background: #D8EFC2;
+	color: #097133;
+	border-left: 5px solid  #097133;
+	padding: 9px;
+	margin: 22px 0;
+}
+
+p.errorMessage{
+	background: #EFCBC2;
+	color: #D71517;
+	border-left: 5px solid  #DA1527;
+	padding: 9px;
+	margin: 22px 0;
+}
+    </style>
+    <title>Main - administrator</title>
+ 
+    <script src="../fw/jquery.min.js"></script>
+
+    
+    <script>
+        $(function() {
+            $("header").load("nav.html");
+            $("Addadmin").load("../comp/addadmin.html");
+            $("adminoptions").load("../comp/admin-option.html");
+            $("adminlist").load("../comp/adminlist.html")
+            $("#footer").load("../comp/footer.html");
+        });
+
+    </script>
+    <link rel="stylesheet" href="../fw/bootsrtrap.min.css">
+    <link rel="stylesheet" href="../css/admins.css">
+    
+</head>
+
+<body>
+    <header> </header>
+ 
+        <div class="row">
+       <div class="col-md-8">
+   <script>
+        $(function() {
+            $("addadmin").load("../comp/addadmin.html");
+            $("deleteadmin").load("../comp/deleteadmin.html");
+            $("addcource").load("../comp/add-cource.html");
+            $("deletecource").load("../comp/delete-cource.html");
+      
+        });
+          
+$(function(){
+    $("addcource").hide();
+    $("#addcource").on("click", function(){
+        $("deletecource").hide();
+          $("addadmin").hide();
+        $("deleteadmin").hide();
+        $("addcource").toggle();
+    });
+});
+$(function(){
+    $("deletecource").hide();
+    $("#delet").on("click", function(){
+         $("addcource").hide();
+           $("addadmin").hide();
+        $("deleteadmin").hide();
+        $("deletecource").toggle();
+    });
+});
+$(function(){
+    $("addadmin").hide();
+    $("#newadmin").on("click", function(){
+       $("deletecource").hide(); 
+         $("addcource").hide();
+         $("deleteadmin").hide();
+        $("addadmin").toggle();
+    });
+});
+          
+$(function(){
+    $("deleteadmin").hide();
+    $("#dele").on("click", function(){
+          $("addcource").hide();
+         $("deletecource").hide();
+        $("addadmin").hide();
+        $("deleteadmin").toggle();
+    });
+});
+    </script>
+<div id="app">
+    
+<button type="button" class="btn btn-primary active" id="addcource">
+  {{  edit }}
+    </button>
+    
+<button type="button" class="btn btn-primary active"  id="delet">
+  {{  delet }}
+    </button>
+    <button type="button" class="btn btn-primary active" id="newadmin" >
+  {{  addadmin }}
+    </button>
+    <button type="button" class="btn btn-primary active" id="dele">
+  {{  deleteadmin }}
+    </button>
+    
+
+
+
+            </div>
+    <div class="col-md-4">
+
+  <div id="app1">
+    <div v-for="administrator in administrators" >
+     
+        
+     <img v-bind:src="administrator.img" class="adminlistimg">
+      <span> <h5> First name :</h5>  {{ administrator.name }}</span>
+
+      <span> <h5> role :</h5> {{ administrator.role }} </span>
+     <span> <h5> Phone:</h5> {{ administrator.phone }}</span>
+      <span> <h5> Email:</h5> {{ administrator.email }} </span>
+   <button @click.native="showingEditModal = true">Edit</button>
+   
+        </div> 
+      	<div class="modal" id="editModal" v-if="showingEditModal">
+		<div class="modalContainer">
+			<div class="modalHeading">
+				<p class="fleft">Edit This User</p>
+				<button class="fright close" @click="showingEditModal = false;">x</button>
+				<div class="clear"></div>
+			</div>
+			<div class="modalContent">
+				<table class="form">
+					<tr>
+						<th>Username</th>
+						<th> : </th>
+						<td> <input type="text" name="" v-model="clickedUser.username"> </td>
+					</tr>
+
+					<tr>
+						<th>Email</th>
+						<th> : </th>
+						<td> <input type="text" name="" v-model="clickedUser.email"> </td>
+					</tr>
+
+					<tr>
+						<th>Mobile</th>
+						<th> : </th>
+						<td> <input type="text" name="" v-model="clickedUser.mobile"> </td>
+					</tr>
+
+					<tr>
+						<th></th>
+						<th> </th>
+						<td> <button @click="showingEditModal = false; updateUser()">Update</button> </td>
+					</tr>
+
+
+				</table>
+			</div>
+		</div>
+	</div>
+
+   
+            
+            </div>
+    </div>
+
+<script src="../js/adminlist.js"></script>
+    <script src="../js/welcome.js"></script>
+   
+    <footer></footer>
+            </div>    </div>
+
+</body>
+
+</html>

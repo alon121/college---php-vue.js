@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="../css/admins.css">
+<div id="app2">
+    <div v-for="courses in courses">
+        <img v-bind:src="courses.image" class="adminlistimg">
+        <span> <h5> NAME: </h5> {{ courses.name }} </span>
+        <span> <h5> Description </h5>{{ courses.description }} </span>
+        <span> <h5> Course Number</h5> {{ courses.id }}</span>
+
+    </div>
+
+
+    <!--
+***********************************
+test -  to change content in DOM -- 
+***********************************
+    <div>{{title}}</div>
+
+<button @click.stop="changeText">Test function</button>
+    
+-->
+</div>
+
+<script src="../fw/vuejs.js"></script>
+<script src="../fw/vue-resource.js"></script>
+<script src="../js/courcelist.js"></script>

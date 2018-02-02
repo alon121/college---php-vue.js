@@ -1,0 +1,23 @@
+.mypop{    
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    /* clear: both; */
+    border: 2px solid;
+    min-height: 200px;
+    min-width: 400px;
+    background: blue;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}

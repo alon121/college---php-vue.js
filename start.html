@@ -1,0 +1,46 @@
+
+
+<html>
+    <head> 
+    <meta charset="utf-8">
+    <title> ברוכים הבאים למערכת ניהול הסטודנטים של אלון</title>
+<link
+  rel="stylesheet"
+  href="frontend/fw/bootsrtrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="frontend/css/style.css">
+        <script>
+        document.getElementById('logto').users.onchange = function() {
+    var newaction = this.value;
+    document.getElementById('logto').action = newaction;
+};
+        </script>
+    </head>
+
+<body>
+
+    
+<div class="loginarea">
+
+    <h1 class="hlogin"> ברוכים הבאים למערכת ניהול הקורסים. </h1>
+    <h2> אנא בצע הזדהות </h2>
+ 
+    <form method="post" class="form-group" id="logto" action="backend/api/loginApi.php">
+        <label for="users"> פרופיל משתמש: </label> 
+        <select name="users" id="users"> 
+    <option value="admin">מנהל</option>
+    <option value="editor">עורך</option>
+    <option value="student">סטודנט</option>
+  </select>
+<label for="username"> שם משתמש  </label>
+    <input type="text" name = "username" class="form-control" id="username">
+<label for="password" > סיסמה  </label>
+    <input type="password" name = "password" class="form-control" id="password">
+        
+    <button type="submit" class="btn btn-primary active" > בוא נתחיל </button>
+    </form>
+
+    </div>
+</body>
+
+    
+</html>

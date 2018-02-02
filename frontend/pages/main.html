@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>Main - administrator</title>
+    <script src="../fw/jquery.min.js"></script>
+    <script src="../js/adminlist.js"></script>
+    
+    <script>
+        $(function() {
+            $("header").load("nav.html");
+            $("Addadmin").load("../comp/addadmin.html");
+            $("adminoptions").load("../comp/admin-option.html");
+            $("adminlist").load("../comp/adminlist.html")
+            $("#footer").load("../comp/footer.html");
+        });
+
+    </script>
+    <link rel="stylesheet" href="../fw/bootsrtrap.min.css">
+    <link rel="stylesheet" href="../css/admins.css">
+    
+</head>
+
+<body>
+    <header> </header>
+ 
+        <div class="row">
+       <div class="col-md-8">
+   <adminoptions> </adminoptions>
+            </div>
+    <div class="col-md-4">
+<adminlist> </adminlist>     
+            
+            </div>
+    </div>
+
+   
+    <footer></footer>
+</body>
+
+</html>
